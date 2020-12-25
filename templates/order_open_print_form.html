@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Заявление об открытии заказа</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .text{
+          font-size: 14px;
+        }
+                
+                
+        th, td {
+            border: 1px solid black;
+        }
+        
+        table {
+        width: 600px;
+        border-collapse: collapse;
+       }
+        
+        body{
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<p class="text"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Заявление об открытии заказа</b></p>
+    <p class="text"><b>Инициатор &emsp;</b>{{ const.PRODUCTION_MANAGER }}</p>
+    <p class="text"><b>Основание &emsp;</b>Договор между {{ const.COMPANY }} и {{ order.customer }}</p>
+     <table>
+            <thead>
+                <tr>
+                    <th scope="col"><b>№ п/п</b></th>
+                    <th scope="col">Наименование заказа</th>
+                    <th scope="col">Еденица измерения</th>
+                    <th scope="col">Колличество</th>
+                    <th scope="col">Заказчик</th>
+                    <th scope="col">Исполнитель заказа</th>
+                    <th scope="col">Срок исполнения заказа</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>{{ order.name }}</td>
+                        <td>{{ order.unit }}</td>
+                        <td>{{ order.amount }}</td>
+                        <td>{{ order.customer }}</td>
+                        <td>{{ department.name }}</td>
+                        <td>{{ order.due_date }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Начальник производства &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ const.PRODUCTION_MANAGER }}</p>
+    <p style="font-size: 15px; margin-top: 20px"><b>СОГЛАСОВАНО</b></p>
+    <p>Начальник {{ department.name }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{ department.chief }}</p>
+    <p>Зам. генирального директора </br>по производству и развитию &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{ const.DEPUTY_HEAD }}</p>
+    <p>Главный бухгалтер&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{ const.CHIEF_ACCOUNTANT }}</p>
+    <p>Главный инженер&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{ const.CHIEF_ENGINEER }}</p>
+
+</body>
+</html>

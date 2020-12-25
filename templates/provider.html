@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    {% block head %}
+        <title>home</title>
+        {{ super() }}
+    {% endblock %}
+</head>
+<body>
+  <!--==============================header=================================-->
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+  <!--==============================content================================-->
+    {% block container %}
+    <div class="container d-flex justify-content-around flex-wrap pt-5">
+         <table class="table table-dark table-striped mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Наименование поставщика</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for provider in providers %}
+                    <tr>
+                        <td>{{ provider.id }}</td>
+                        <td>{{ provider.name }}</td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    <form method="POST">
+        {{ form.name.label }}{{ form.name(class='form-control')  }}
+        {{ form.submit(class='btn btn-lg btn-primary mt-3') }}
+    </form>
+    </div>
+  {% endblock %}
+<!--==============================footer=================================-->
+</body>
+</html>

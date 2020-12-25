@@ -1,0 +1,17 @@
+.text{
+  font-size: 14px;
+}
+
+body{
+    background-color: #fff;
+}
+
+td, th {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+}
+
+table {
+    width: 600px;
+    border-collapse: collapse;
+}

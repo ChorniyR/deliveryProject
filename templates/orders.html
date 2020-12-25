@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    {% block head %}
+        <title>home</title>
+        {{ super() }}
+    {% endblock %}
+</head>
+<body>
+  <!--==============================header=================================-->
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+  <!--==============================content================================-->
+    {% block container %}
+    <div class="container d-flex justify-content-around flex-wrap pt-5">
+         <table class="table table-dark table-striped mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Наименование</th>
+                    <th scope="col">Еденица измерения</th>
+                    <th scope="col">Поставщик</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.name }}</td>
+                        <td>{{ order.unit }}</td>
+                        <td>{{ order.provider }}</td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    <form method="POST" class="mt-4">
+        {{ form.name.label }}{{ form.name(class='form-control') }}
+        {{ form.unit.label }}{{ form.unit(class='form-control') }}
+        {{ form.provider.label }}{{ form.provider(class='form-control form-control-lg') }}
+        {{ form.submit(class='btn btn-lg btn-primary mt-3') }}
+    </form>
+    </div>
+  {% endblock %}
+<!--==============================footer=================================-->
+</body>
+</html>

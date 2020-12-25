@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    {% block head %}
+        <title>home</title>
+        {{ super() }}
+    {% endblock %}
+</head>
+<body>
+  <!--==============================header=================================-->
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+  <!--==============================content================================-->
+    {% block container %}
+    <div class="container d-flex flex-column pt-6">
+        <div class="card">
+              <div class="card-header">
+                Подготовить к печати
+              </div>
+        <div class="card-body">
+             <h5 class="card-title">Заявление об открытии заказа</h5>
+            <form method="POST">
+             {{ open_order_form.order.label }}{{ open_order_form.order(class='form-control form-control-lg') }}
+             {{ open_order_form.amount.label }}{{ open_order_form.amount(class='form-control') }}
+             {{ open_order_form.department.label }}{{ open_order_form.department(class='form-control form-control-lg') }}
+             {{ open_order_form.due_date.label }}{{ open_order_form.due_date(class='form-control') }}
+             {{ open_order_form.customer.label }}{{ open_order_form.customer(class='form-control') }}
+             {{ open_order_form.submit(class="btn btn-primary mt-3") }}
+            </form>
+        </div>
+</div>
+    </div>
+  {% endblock %}
+<!--==============================footer=================================-->
+</body>
+</html>
